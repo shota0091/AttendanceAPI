@@ -1,6 +1,6 @@
 ﻿using Attendance.DTOs;
 using Attendance.Models;
-using MyAttendanceApi.Repositories;
+using Attendance.Repositories;
 
 namespace Attendance.Services
 {

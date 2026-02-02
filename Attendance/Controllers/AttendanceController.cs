@@ -65,12 +65,21 @@ namespace Attendance.Controllers
         {
             try
             {
-                var result = _service.UpdateAttendance(id,request);
+                var result = _service.UpdateAttendance(id, request);
                 return Ok(result);
             }
-            catch (InvalidOperationException ex)
+            catch (KeyNotFoundException ex) // Serviceが投げた「見つからない」エラーを捕まえる
+            {
+                return NotFound(new { message = ex.Message });
+            }
+            catch (InvalidOperationException ex) // ロジックエラー（退勤済みなど）
             {
                 return BadRequest(new { message = ex.Message });
+            }
+            catch (Exception) // その他想定外のエラー
+            {
+                // ログに出す処理など本来は必要
+                return StatusCode(500, new { message = "予期せぬエラーが発生しました" });
             }
         }
 

@@ -1,10 +1,9 @@
 ﻿using Attendance.Data;
 using Attendance.Models;
-using MyAttendanceApi.Repositories;
 
-namespace Attendance.Repository
+namespace Attendance.Repositories
 {
-    public class AttendanceRepository:IAttendanceRepository
+    public class AttendanceRepository : IAttendanceRepository
     {
         private readonly AppDbContext _context;
 
@@ -32,7 +31,7 @@ namespace Attendance.Repository
         {
             return _context.AttendanceRecords
                 .Where(a => a.UserId == userId && a.ClockOutTime == null && !a.IsDeleted)
-                .OrderByDescending(a => a.WorkDate)
+                .OrderByDescending(a => a.ClockInTime)
                 .FirstOrDefault();
         }
 

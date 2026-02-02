@@ -1,8 +1,7 @@
 using Attendance.Data;
-using Attendance.Repository; // ※フォルダ名が Repositories なら s をつける
+using Attendance.Repositories;// ※フォルダ名が Repositories なら s をつける
 using Attendance.Services;
 using Microsoft.EntityFrameworkCore;
-using MyAttendanceApi.Repositories;
 // using MyAttendanceApi.Repositories; // ←これは不要なら消す
 
 var builder = WebApplication.CreateBuilder(args);

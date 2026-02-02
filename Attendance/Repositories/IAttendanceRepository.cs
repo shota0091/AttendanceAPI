@@ -1,6 +1,6 @@
 ﻿using Attendance.Models;
 
-namespace MyAttendanceApi.Repositories
+namespace Attendance.Repositories
 {
     public interface IAttendanceRepository
     {
